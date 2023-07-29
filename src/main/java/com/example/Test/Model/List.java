@@ -1,6 +1,12 @@
 package com.example.Test.Model;
 
+
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name="lists")
@@ -10,9 +16,14 @@ public class List {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @NotEmpty(message = "Adivizi mutleq qeyd edin.")
     private String name;
+    @NotEmpty(message = "Soyadivizi mutleq qeyd edin.")
     private String surname;
+
+    @Min(value = 0)
     private int age;
+    @NotEmpty(message = "Isivizi mutleq qeyd edin.")
     private String profession;
 
     public List() {
