@@ -16,14 +16,14 @@ public class List {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotEmpty(message = "Adivizi mutleq qeyd edin.")
+    @NotEmpty(message = "Adivizi mutleq qeyd etmelisiniz.")
     private String name;
-    @NotEmpty(message = "Soyadivizi mutleq qeyd edin.")
+    @NotEmpty(message = "Soyadivizi mutleq qeyd etmelisiniz.")
     private String surname;
 
-    @Min(value = 0)
+    @Min(value = 1)
     private int age;
-    @NotEmpty(message = "Isivizi mutleq qeyd edin.")
+    @NotEmpty(message = "Isivizi mutleq qeyd etmelisiniz.")
     private String profession;
 
     public List() {
