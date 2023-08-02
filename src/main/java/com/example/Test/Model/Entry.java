@@ -3,14 +3,12 @@ package com.example.Test.Model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
 
 @Entity
 @Table(name="lists")
-public class List {
+public class Entry {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +24,7 @@ public class List {
     @NotEmpty(message = "Isivizi mutleq qeyd etmelisiniz.")
     private String profession;
 
-    public List() {
+    public Entry() {
     }
 
     public Long getId() {
@@ -70,7 +68,7 @@ public class List {
     }
 
 
-    public List(String name, String surname, int age, String profession) {
+    public Entry(String name, String surname, int age, String profession) {
         this.name = name;
         this.surname = surname;
         this.age = age;
