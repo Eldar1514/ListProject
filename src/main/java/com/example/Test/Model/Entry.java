@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotEmpty;
 
 
 @Entity
-@Table(name="lists")
+//@Table(name="lists")
 public class Entry {
 
     @Id

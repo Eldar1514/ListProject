@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -53,8 +54,16 @@ public class GreetingController {
             return json;
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-            return "Error while converting data to JSON";
+            return "Error";
         }
     }
+    @GetMapping("/search")
+    public String serachByContaining(@RequestParam ("keyword") String keyword,Model model){
+        List<Entry>searchResults = listRepo.findByNameContaining(keyword);
+        model.addAttribute("searchResults",searchResults);
+
+        return "search";
+    }
+
 }
 
