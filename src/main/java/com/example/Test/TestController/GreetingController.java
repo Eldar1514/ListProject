@@ -58,8 +58,8 @@ public class GreetingController {
         }
     }
     @GetMapping("/search")
-    public String serachByContaining(@RequestParam ("keyword") String keyword,Model model){
-        List<Entry>searchResults = listRepo.findByNameContaining(keyword);
+    public String serachByNameContaining(@RequestParam ("name") String name,Model model){
+        List<Entry>searchResults = listRepo.findByNameContaining(name);
         model.addAttribute("searchResults",searchResults);
 
         return "search";
