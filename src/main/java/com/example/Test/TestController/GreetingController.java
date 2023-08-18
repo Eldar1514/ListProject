@@ -57,13 +57,20 @@ public class GreetingController {
             return "Error";
         }
     }
-    @GetMapping("/search")
-    public String serachByNameContaining(@RequestParam ("name") String name,Model model){
-        List<Entry>searchResults = listRepo.findByNameContaining(name);
-        model.addAttribute("searchResults",searchResults);
 
+    @GetMapping("/search")
+    public String findByKeyword (@RequestParam ("name") String keyword,Model model){
+        List<Entry>searchResults =listRepo.findByNameContainingOrSurnameContainingOrProfessionContaining(keyword,keyword,keyword);
+        model.addAttribute("searchResults",searchResults);
         return "search";
     }
 
+
+    @GetMapping("/searchByAge")
+    public String findByAge (@RequestParam ("name") String age,Model model){
+        List<Entry>searchResults = listRepo.findByAgeContaining(age);
+        model.addAttribute("searchResults",searchResults);
+        return "searchByAge";
+    }
 }
 
